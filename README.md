@@ -29,7 +29,7 @@ Note: It may make sense to use separate bundle identifiers for development and p
     openssl req -new -newkey rsa:2048 -nodes -out "$APP.certSigningRequest" -keyout "$APP.key.pem"
     ```
 
-    Fill out your location information, the OU, Email Address, Challenge Passowrd, and CN may all be left blank. Skip entering the export password.
+    Fill out your location information, the OU, Email Address, Challenge Password, and CN may all be left blank. Skip entering the export password.
 
   * Create the development certificate:
 
@@ -82,7 +82,7 @@ In the above steps you created a development key and CSR for APNs. To create an 
   * Note: This is a different type of certificate than the APS certificates generated in this guide, but the OpenSSL steps to generate it (above) are the same
 * Select the devies you want to allow
 * Enter the profile name: YourApp Ad Hoc
-* Download the provisioning profile file and open it, which will import the file into "~/Library/MobileDevice/Provisioning Profiles/UUID."
+* Download the provisioning profile file and open it, which will import the file into "~/Library/MobileDevice/Provisioning Profiles/UUID.mobileprovision"
 
 ## Final Steps ##
 
