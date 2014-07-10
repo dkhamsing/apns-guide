@@ -17,10 +17,15 @@ Note: It may make sense to use separate bundle identifiers for development and p
 
 ### Certificates ###
 
-  * Create the private key and associated certificate signing request (CSR):
+  * Open up a terminal and enter the following line to setup your app name, this is a variable that will be used by the other commands in this section to help generate sensible filenames. This guide uses the openssl command rather than Keychain Access because it's easier to script and works cross-platform.
 
     ```
     APP=YourApp-Development-Push
+    ```
+
+  * Create the private key and associated certificate signing request (CSR):
+
+    ```
     openssl req -new -newkey rsa:2048 -nodes -out $APP.certSigningRequest -keyout $APP.key.pem
     ```
 
@@ -38,14 +43,12 @@ Note: It may make sense to use separate bundle identifiers for development and p
     * Rename the certificate to match your key and CSR (the filename should either start with ios or aps and end with development, production, or distribution):
     
     ```
-    APP=YourApp-Development-Push
-    mv aps_development.cer $APP.cer
+    mv ~/Downloads/aps_development.cer $APP.cer
     ```
     
     * Create the P12 and PEM files with the private key and signed certificate:
 
     ```
-    APP=YourApp-Development-Push
     openssl x509 -in $APP.cer -inform der -outform pem -out $APP.cert.pem
     cat $APP.cert.pem $APP.key.pem > $APP.pem
     openssl pkcs12 -export -in $APP.pem -out $APP.p12     
