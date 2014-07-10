@@ -51,24 +51,19 @@ Note: It may make sense to use separate bundle identifiers for development and p
     openssl pkcs12 -export -in $APP.pem -out $APP.p12     
     ```
 
-You should replace "Development" with "AdHoc", "Production" or something meaingful depending on what the certificate is going to be used for.
-
-#### Create the APN certificate ####
-
-Todo
-
 #### Create the production/ad-hoc certificate ####
 
-  * Create an additional key and CSR
-  * Go to "Certificates" and add another one; repeat the steps in this section and select "Apple Push Notification service SSL (Production)" instead of the Sandbox option
+In the above steps you created a development key and CSR for APNs. To create an adhoc/production version:
 
-By the end of the certificate generation process, you should have two certifiates for development: "iOS App Development" for signing and "Apple Push Notification service SSL (Sandbox)" for APN connections. For production, you should have: "App Store and Ad Hoc" for signing, and two other certificates for APN connections: "Apple Push Notification service SSL (Development)" and "Apple Push Notification service SSL (Production)".
+  * Follow the above steps
+  * When generating the certificate, select "Apple Push Notification service SSL (Production)" instead of the Sandbox option
+  * You should replace "Development" with "AdHoc" or "Production" depending on what the certificate is going to be used for
 
 ### Setup production push service for the App Identifier ###
 
-  * After creating the identifier, you'll need to setup the APNS certificate for push notifications, to do this click on the production/ad-hoc App ID you created and click "Edit"
-  * Click "Create Certificate" under "Development SSL Certificate"
-  * Repeat the steps in the section above to generate a new private key and CSR
+  * After creating the identifier, you'll need to setup the APNS certificate for production push notifications, to do this click on the production/ad-hoc App ID you created and click "Edit"
+  * Click "Create Certificate" under "Production SSL Certificate"
+  * Use the certificate signing request that you generated in the previous section
 
 ### Devices ###
 
@@ -79,8 +74,8 @@ By the end of the certificate generation process, you should have two certifiate
 * Go to "Provisioning Profiles" and add a new one
 * Select "Ad Hoc" for the profile type
 * Select the Ad Hoc App ID you created
-* Select your distribution certificate
-  * This is a different type of certificate than the APS certificates generated in this guide, but the openssl steps to generate it are the same
+* Select your signing certificate for distribution
+  * Note: This is a different type of certificate than the APS certificates generated in this guide, but the OpenSSL steps to generate it (above) are the same
 * Select the devies you want to allow
 * Enter the profile name: YourApp Ad Hoc
 * Download the provisioning profile file
@@ -102,6 +97,8 @@ After following the above steps, you should files that are something similar to 
 * YourApp-AdHoc-Push.p12
 * YourApp-AdHoc-Push.pem
 * YourApp-AdHoc.mobileprovision
+
+In addition to the above files, you'll want to keep track of your own iOS signing certificates which are split out into development and production versions.
 
 To test connecting to the APNS gateway (the development sandbox in this case):
 
