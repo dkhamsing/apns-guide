@@ -41,10 +41,10 @@ This guide uses the openssl command rather than Keychain Access because it's eas
     * Now select the App ID that corresponds to the certificate you're creating and click continue
     * In the next step, choose the CSR file you created
     * The last step will allow you to download the generated certificate, named "aps_development.cer" by default
-    * Rename the certificate to match your key and CSR (the filename should either start with ios or aps and end with development, production, or distribution):
+    * Rename the certificate to match your key and CSR (the filename should start with aps and end with development or production):
     
     ```
-    mv ~/Downloads/aps_development.cer "$APP.cer"
+    mv ~/Downloads/aps_production.cer "$APP.cer"
     ```
     
     * Create the P12 and PEM files with the private key and signed certificate:
