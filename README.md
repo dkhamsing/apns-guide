@@ -22,7 +22,7 @@ This guide uses the openssl command rather than Keychain Access because it's eas
   * Open up a terminal and enter the following line to setup your app name, this is a variable that will be used by the other commands in this section to help generate sensible filenames. You may use "Development", "AdHoc" or "Production" depending on what the certificate will be used for.
 
     ```
-    APP="YourApp-Development-Push-Sandbox"
+    APP="YourApp-AdHoc-Push-Sandbox"
     ```
 
   * Create the private key and associated certificate signing request (CSR):
