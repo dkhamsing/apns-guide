@@ -121,3 +121,8 @@ openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert YourApp-Deve
 ## APNS with over-the-air (OTA) Deployments ##
 
 To get push notifications working with over-the-air builds, you need to create and use a production certificate. (The devleopment certificates are intended to be used when installing your app directly from Xcode/organizer and will provide extra debug information.)
+
+## Contact ##
+
+- Brian Stanback https://github.com/stanback
+- Daniel Khamsing https://github.com/dkhamsing
