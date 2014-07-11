@@ -17,10 +17,12 @@ Note: It may make sense to use separate bundle identifiers for development and p
 
 ### Certificates ###
 
-  * Open up a terminal and enter the following line to setup your app name, this is a variable that will be used by the other commands in this section to help generate sensible filenames. This guide uses the openssl command rather than Keychain Access because it's easier to script and works cross-platform.
+This guide uses the openssl command rather than Keychain Access because it's easier to script and works cross-platform.
+
+  * Open up a terminal and enter the following line to setup your app name, this is a variable that will be used by the other commands in this section to help generate sensible filenames. You may use "Development", "AdHoc" or "Production" depending on what the certificate will be used for.
 
     ```
-    APP=YourApp-Development-Push
+    APP="YourApp-Development-Push-Sandbox"
     ```
 
   * Create the private key and associated certificate signing request (CSR):
@@ -61,7 +63,7 @@ In the above steps you created a development key and CSR for APNs. To create an 
 
   * Follow the above steps
   * When generating the certificate, select "Apple Push Notification service SSL (Production)" instead of the Sandbox option
-  * You should replace "Development" with "AdHoc" or "Production" depending on what the certificate is going to be used for
+  * You should replace "Sandbox" with "Production" to know what type of push service each certificate is for
 
 ### Setup production push service for the App Identifier ###
 
