@@ -108,7 +108,7 @@ After following the above steps, you should files that are something similar to 
 
 In addition to the above files, you'll want to keep track of your own iOS signing certificates which are split out into development and production versions. For development, you can generally re-use these certifiates across all of the apps in your account but it may be advisable to create separate production signing certificates for App Store releases.
 
-You may generate your signing certificates using the same openssl-based steps above for creating the push certificates. Note: If you used the above commands, you'll need to import the .cer and .p12 files into your keychain in order for xCode to be able to sign your apps.
+You may generate your signing certificates using the same openssl-based steps above for creating the push certificates. Note: If you used the above commands, you'll need to import the .cer and .p12 files into your keychain in order for Xcode to be able to sign your apps.
 
 ### Testing ###
 
