@@ -19,10 +19,10 @@ Note: It may make sense to use separate bundle identifiers for development and p
 
 This guide uses the openssl command rather than Keychain Access because it's easier to script and works cross-platform.
 
-  * Open up a terminal and enter the following line to setup your app name, this is a variable that will be used by the other commands in this section to help generate sensible filenames. You may use "Development", "AdHoc" or "Production" depending on what the certificate will be used for.
+  * Open up a terminal and enter the following line to setup your app name. This is a variable that will be used by the other commands in this section to help generate consistent filenames so please adapt it to fit your needs:
 
     ```
-    APP="YourApp-AdHoc-Push-Sandbox"
+    APP="YourApp-Development-Push-Sandbox"
     ```
 
   * Create the private key and associated certificate signing request (CSR):
@@ -33,18 +33,18 @@ This guide uses the openssl command rather than Keychain Access because it's eas
 
     Fill out your location information, the OU, Email Address, Challenge Password, and CN may all be left blank. Skip entering the export password.
 
-  * Create the development certificate:
+  * Create the APNS sandbox certificate for development use:
 
     * After you've created the identifier, go to "Certificates" and add a new one
     * Select "Apple Push Notification service SSL (Sandbox)" and click continue
       * Note: In addition to the push certificate, you'll also need to generate a separate key, csr, and cert for signing the app for development and distribution with if you haven't already done so
     * Now select the App ID that corresponds to the certificate you're creating and click continue
     * In the next step, choose the CSR file you created
-    * The last step will allow you to download the generated certificate, named "aps_development.cer" by default
-    * Rename the certificate to match your key and CSR (the filename should start with aps and end with development or production):
+    * The last step will allow you to download the generated certificate, named "aps_development.cer" for the sandbox and "aps_production.cer" for production
+    * Rename the certificate to match your key and CSR (optional but recommended):
     
     ```
-    mv ~/Downloads/aps_production.cer "$APP.cer"
+    mv ~/Downloads/aps_development.cer "$APP.cer"
     ```
     
     * Create the P12 and PEM files with the private key and signed certificate:
@@ -57,9 +57,9 @@ This guide uses the openssl command rather than Keychain Access because it's eas
     
     You'll must specify an export password when generating the pkcs12 file.
 
-#### Create the production/ad-hoc certificate ####
+#### Create the production APNS certificate ####
 
-In the above steps you created a development key and CSR for APNs. To create an adhoc/production version:
+In the above steps you created a key and CSR for the sandbox APNS. To create an adhoc/production version:
 
   * Follow the above steps
   * When generating the certificate, select "Apple Push Notification service SSL (Production)" instead of the Sandbox option
@@ -78,7 +78,7 @@ In the above steps you created a development key and CSR for APNs. To create an 
 ### Provisioning Profiles ###
 
 * Go to "Provisioning Profiles" and add a new one
-* Select "Ad Hoc" for the profile type
+* Select "Ad Hoc" for the profile type (you will also want to create a provisioning profile for development purposes)
 * Select the Ad Hoc App ID you created
 * Select your signing certificate for distribution
   * Note: This is a different type of certificate than the APS certificates generated in this guide, but the OpenSSL steps to generate it (above) are the same
@@ -90,18 +90,21 @@ In the above steps you created a development key and CSR for APNs. To create an 
 
 After following the above steps, you should files that are something similar to the following:
 
-* YourApp-AdHoc-Push-Production.cer
-* YourApp-AdHoc-Push-Production.cert.pem
-* YourApp-AdHoc-Push-Production.certSigningRequest
-* YourApp-AdHoc-Push-Production.key.pem
-* YourApp-AdHoc-Push-Production.p12
-* YourApp-AdHoc-Push-Production.pem
-* YourApp-AdHoc-Push.cer
-* YourApp-AdHoc-Push.cert.pem
-* YourApp-AdHoc-Push.certSigningRequest
-* YourApp-AdHoc-Push.key.pem
-* YourApp-AdHoc-Push.p12
-* YourApp-AdHoc-Push.pem
+* YourApp-Development-Push-Production.cer
+* YourApp-Development-Push-Production.cert.pem
+* YourApp-Development-Push-Production.certSigningRequest
+* YourApp-Development-Push-Production.key.pem
+* YourApp-Development-Push-Production.p12
+* YourApp-Development-Push-Production.pem
+
+* YourApp-Development-Push-Sandbox.cer
+* YourApp-Development-Push-Sandbox.cert.pem
+* YourApp-Development-Push-Sandbox.certSigningRequest
+* YourApp-Development-Push-Sandbox.key.pem
+* YourApp-Development-Push-Sandbox.p12
+* YourApp-Development-Push-Sandbox.pem
+
+* YourApp-Development.mobileprovision
 * YourApp-AdHoc.mobileprovision
 
 ### Signing ###
