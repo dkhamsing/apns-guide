@@ -90,6 +90,8 @@ In the above steps you created a key and CSR for the sandbox APNS. To create an 
 
 After following the above steps, you should files that are something similar to the following:
 
+Production push key/certs:
+
 * YourApp-Development-Push-Production.cer
 * YourApp-Development-Push-Production.cert.pem
 * YourApp-Development-Push-Production.certSigningRequest
@@ -97,12 +99,16 @@ After following the above steps, you should files that are something similar to 
 * YourApp-Development-Push-Production.p12
 * YourApp-Development-Push-Production.pem
 
+Development push key/certs:
+
 * YourApp-Development-Push-Sandbox.cer
 * YourApp-Development-Push-Sandbox.cert.pem
 * YourApp-Development-Push-Sandbox.certSigningRequest
 * YourApp-Development-Push-Sandbox.key.pem
 * YourApp-Development-Push-Sandbox.p12
 * YourApp-Development-Push-Sandbox.pem
+
+Provisioning profiles:
 
 * YourApp-Development.mobileprovision
 * YourApp-AdHoc.mobileprovision
