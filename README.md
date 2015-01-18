@@ -2,6 +2,20 @@
 
 Guide to setup APNS.
 
+# Steps
+- [Create Certificates, Identifiers and Profiles](#create-certificates-identifiers-and-profiles)
+	- [Create the App Identifier](#create-the-app-identifier) 
+	- [Certificates](#certificates)
+		- [Create the production APNS certificate](#create-the-production-apns-certificate)
+	- [Setup production push service for the App Identifier](#setup-production-push-service-for-the-app-identifier)
+	- [Devices](#devices)
+	- [Provisioning Profiles](#provisioning-profiles)
+- [Final Steps](#final-steps)
+	- [Signing](#signing)
+	- [Testing](#testing)
+- [APNS with over-the-air (OTA) Deployments](#apns-with-over-the-air-ota-deployments)
+- [Contact](#contact)
+
 ## Create Certificates, Identifiers and Profiles ##
 
 Log into the [Apple Developer Member Center](https://developer.apple.com/account/overview.action).
