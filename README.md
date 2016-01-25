@@ -14,6 +14,7 @@ Guide to setup APNS.
 	- [Signing](#signing)
 	- [Testing](#testing)
 - [APNS with over-the-air (OTA) Deployments](#apns-with-over-the-air-ota-deployments)
+- [Tools](#tools)
 - [Contact](#contact)
 
 ## Create Certificates, Identifiers and Profiles ##
@@ -144,6 +145,13 @@ openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert YourApp-Deve
 ## APNS with over-the-air (OTA) Deployments ##
 
 To get push notifications working with over-the-air builds, you need to create and use a production certificate. (The devleopment certificates are intended to be used when installing your app directly from Xcode/organizer and will provide extra debug information.)
+
+## Tools ##
+
+Here are some tools to help you with APNS :+1:
+
+- [Knuff](https://github.com/KnuffApp/Knuff): The debug application for Apple Push Notification Service
+- [PEM](https://github.com/fastlane/PEM): Automatically generate and renew your push notification profiles
 
 ## Contact ##
 
