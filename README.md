@@ -151,7 +151,7 @@ To get push notifications working with over-the-air builds, you need to create a
 Here are some tools to help you with APNS :+1:
 
 - [Knuff](https://github.com/KnuffApp/Knuff): The debug application for Apple Push Notification Service
-- [PEM](https://github.com/fastlane/PEM): Automatically generate and renew your push notification profiles
+- [PEM](https://github.com/fastlane/fastlane/tree/master/pem): Automatically generate and renew your push notification profiles
 
 ## Contact ##
 
