@@ -1,6 +1,12 @@
 # Apple Push Notification (APNS) Setup Guide #
 
-Guide to setup APNS.
+:warning: Note this guide is quite old, additional resources below:
+
+- [How to Generate a Push Certificate and Export It to a PEM File](https://instabug.com/blog/how-to-generate-a-push-certificate-and-export-it-to-a-pem-file/)
+- [Configuring Remote Notification Support](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html)
+- [Apple Push Notification Device Tokens](https://nshipster.com/apns-device-tokens/)
+
+Guide to setup APNS - 2016
 
 # Steps
 - [Create Certificates, Identifiers and Profiles](#create-certificates-identifiers-and-profiles)
@@ -144,14 +150,14 @@ openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert YourApp-Deve
 
 ## APNS with over-the-air (OTA) Deployments ##
 
-To get push notifications working with over-the-air builds, you need to create and use a production certificate. (The devleopment certificates are intended to be used when installing your app directly from Xcode/organizer and will provide extra debug information.)
+To get push notifications working with over-the-air builds, you need to create and use a production certificate. (The development certificates are intended to be used when installing your app directly from Xcode/organizer and will provide extra debug information.)
 
 ## Tools ##
 
 Here are some tools to help you with APNS :+1:
 
 - [Knuff](https://github.com/KnuffApp/Knuff): The debug application for Apple Push Notification Service
-- [PEM](https://github.com/fastlane/fastlane/tree/master/pem): Automatically generate and renew your push notification profiles
+- [PEM](http://docs.fastlane.tools/actions/pem/): Automatically generate and renew your push notification profiles
 
 ## Contact ##
 
